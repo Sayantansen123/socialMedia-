@@ -19,22 +19,24 @@ const UserHeader = () => {
     };
     return (
         <VStack gap={4} alignItems="start">
-            <Flex justifyContent={"space-between"} w={"full"}>
-                <Box>
-                    <Text fontSize={"2xl"} fontWeight={"bold"} >
-                        Mark Zuckerberg
-                    </Text>
-
-                    <Flex gap={2} alignItems={"center"}>
-                        <Text fontSize={"sm"}>1,234 followers</Text>
-                    </Flex>
-                </Box>
+            <Flex  w={"full"} gap={3}>
                 <Box>
                     <Avatar
                         name='Mark Zuckerberg'
                         src='/zuck-avatar.png'
                         size={"xl"} />
                 </Box>
+                <Box pt={4}>
+                    <Text fontSize={"2xl"} fontWeight={"bold"} >
+                        Mark Zuckerberg
+                    </Text>
+
+                    <Flex gap={2} alignItems={"center"}>
+                        <Text fontSize={"sm"}>1,234 followers</Text>
+                        
+                    </Flex>
+                </Box>
+
             </Flex>
 
             <Text>Co-founder,executive chairman of Meta platform</Text>
