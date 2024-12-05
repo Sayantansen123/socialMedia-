@@ -1,3 +1,5 @@
+import User from "../models/userModel.js";
+
 const createPost = async (req, res) => {
 
     try {
