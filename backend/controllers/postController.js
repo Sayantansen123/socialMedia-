@@ -123,6 +123,23 @@ const replyToPost = async (req,res) =>{
     }
 };
 
+const getFeedPosts = async (req,res)=>{
+    try {
+        const userId = req.user._id;
+        const user = await User.findById(userId);
+        if(!user){
+            return req.status(404).json({message:"user not found"});
+        }
 
+        const following = user.following;
 
-export { createPost, getPost, deletePost ,likeUnlikePost,replyToPost}
+		const feedPosts = await Post.find({ postedBy: { $in: following } }).sort({ createdAt: -1 });
+
+        res.status(200).json(feedPosts);
+        
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
+
+export { createPost, getPost, deletePost ,likeUnlikePost,replyToPost,getFeedPosts}
